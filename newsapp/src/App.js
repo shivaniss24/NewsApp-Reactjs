@@ -1,13 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Navbar from './Components/Navbar'; 
 
-function App() {
-  return (
-   <div>
-    <h1>This is news app</h1>
-   </div>
-  
-  );
+export default class App extends Component {
+ 
+name='shivani';
+  render() {
+    return (
+      <div>
+        <Navbar/>
+       </div>
+    )
+  }
 }
-
-export default App;
