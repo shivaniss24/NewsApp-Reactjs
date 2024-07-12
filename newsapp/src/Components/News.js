@@ -1,195 +1,372 @@
 
 import React, { Component } from 'react'
-import NewsItem from './NewsItem'
+import NewsItem from './NewsItem';
+import Spinner from './Spinner';
 export class News extends Component {
-     articles=[
+      
+  articles=[
         {
-            "source":{"id":null,"name":"BBC News"},
-            "author":null,
-            "title":"Israeli military tells all Gaza City residents to evacuate - BBC.com",
-            "description":"Leaflets addressed to \"everyone\" in the city are dropped instructing them to head to central Gaza.","url":"https://www.bbc.com/news/articles/cy08nl4plvzo","urlToImage":"https://ichef.bbci.co.uk/news/1024/branded_news/6db2/live/6875e9b0-3eb7-11ef-9e1c-3b4a473456a6.jpg",
-            "publishedAt":"2024-07-10T12:00:19Z",
-            "content":"By Tom Bennett and Rushdi Abualouf, BBC News in London and Istanbul\r\nThe Israeli military has told all residents of Gaza City to evacuate south to the central Gaza Strip, amid an intensified offensiv… [+2949 chars]"
+        "source": {
+        "id": "the-washington-post",
+        "name": "The Washington Post"
+        },
+        "author": "Ben Golliver",
+        "title": "Thanks, Obama: USA Basketball survives rust, roster drama in exhibition win - The Washington Post",
+        "description": "With the former president sitting courtside, a star-studded U.S. team beat Canada in its first tune-up before the Paris Olympics.",
+        "url": "https://www.washingtonpost.com/sports/olympics/2024/07/11/usa-basketball-canada-barack-obama/",
+        "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/URHPROSA2BCB5A3XBGLQBACS2U_size-normalized.jpg&w=1440",
+        "publishedAt": "2024-07-11T14:21:34Z",
+        "content": "LAS VEGAS Heavy favorites make for big targets.\r\nThe United States mens basketball team found itself entangled in a chaotic mess as it took the court to launch its run to the Paris Olympics: Two star… [+6837 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "New York Post"
+        },
+        "author": "Tracy Swartz",
+        "title": "40% of cancer cases linked to bad behavior — here are the major culprits - New York Post ",
+        "description": "Well, this is a drag.",
+        "url": "https://nypost.com/2024/07/11/lifestyle/40-of-cancer-cases-linked-to-bad-behavior-smoking-main-culprit/",
+        "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/07/portrait-middle-aged-woman-smoking-85275289.jpg?quality=75&strip=all&w=1024",
+        "publishedAt": "2024-07-11T14:05:00Z",
+        "content": "Well, this is a drag.\r\nSmoking is to blame for 20% of US cancer cases and nearly 30% of cancer deaths, the American Cancer Society (ACS) warns in new research.\r\nIn fact, the organization insists that… [+2372 chars]"
+        },
+        {
+        "source": {
+        "id": "google-news",
+        "name": "Google News"
+        },
+        "author": "ABC News",
+        "title": "Gunman at large after ambushing, killing deputy following assault on pizza worker over wrong order: Officials - ABC News",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiZmh0dHBzOi8vYWJjbmV3cy5nby5jb20vVVMvZ3VubWFuLWxhcmdlLWFmdGVyLWFtYnVzaGluZy1raWxsaW5nLWRlcHV0eS1hc3NhdWx0LXBpenphL3N0b3J5P2lkPTExMTg0MDgyONIBamh0dHBzOi8vYWJjbmV3cy5nby5jb20vYW1wL1VTL2d1bm1hbi1sYXJnZS1hZnRlci1hbWJ1c2hpbmcta2lsbGluZy1kZXB1dHktYXNzYXVsdC1waXp6YS9zdG9yeT9pZD0xMTE4NDA4Mjg?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-07-11T13:23:53Z",
+        "content": null
+        },
+        {
+        "source": {
+        "id": "reuters",
+        "name": "Reuters"
+        },
+        "author": "Reuters",
+        "title": "Fed seen nearing rate cuts as inflation eases - Reuters",
+        "description": null,
+        "url": "https://www.reuters.com/markets/us/traders-boost-bets-fed-rate-cut-sept-after-cpi-data-2024-07-11/",
+        "urlToImage": null,
+        "publishedAt": "2024-07-11T13:18:00Z",
+        "content": null
+        },
+        {
+        "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+        },
+        "author": "Darren Reynolds",
+        "title": "Brawl breaks out between players and fans after Colombia-Uruguay soccer match - ABC News",
+        "description": "About a dozen Uruguay players went into the stands.",
+        "url": "https://abcnews.go.com/International/brawl-breaks-players-fans-after-colombia-uruguay-copa/story?id=111834692",
+        "urlToImage": "https://i.abcnewsfe.com/a/5c1669f0-f392-4078-9c22-a81b2bf8e943/uruguay-colombia-jul_1720670746724_hpMain_16x9.jpg?w=1600",
+        "publishedAt": "2024-07-11T13:07:38Z",
+        "content": "After a heated soccer match on the pitch, emotions spilled over into the stands Wednesday night at the Colombia/Uruguay Copa America semi-final soccer match in Charlotte.\r\nAbout a dozen Uruguay socce… [+269 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "CNET"
+        },
+        "author": null,
+        "title": "Galaxy Z Flip 6 vs Z Flip 5 vs. Z Flip 4: Comparing Samsung's Flip Phones - CNET",
+        "description": "All the specs and prices for Samsung's latest Galaxy Z Flip 6 phone compared with the Galaxy Z Flip 5 and the Galaxy Z Flip 4.",
+        "url": "https://www.cnet.com/tech/mobile/galaxy-z-flip-6-z-flip-5-z-flip-4-comparing-samsung-flip-phones/",
+        "urlToImage": "https://www.cnet.com/a/img/resize/39f7c79965ff3778667f14b9c182b8445d2fd356/hub/2024/07/10/a58b5d7e-0720-42cc-a5d8-a06c391af1d8/galaxyzflip6.png?auto=webp&fit=crop&height=675&width=1200",
+        "publishedAt": "2024-07-11T13:00:00Z",
+        "content": "On Wednesday Samsung unveiled the Galaxy Z Flip 6, its next-gen clamshell-style flip phone. The phone has a higher-res camera, a better durability rating, more RAM and a suite of fresh AI features de… [+5402 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "1970-01-01T00:00:00Z",
+        "content": "[Removed]"
+        },
+        {
+        "source": {
+        "id": "the-wall-street-journal",
+        "name": "The Wall Street Journal"
+        },
+        "author": "The Wall Street Journal",
+        "title": "Delta’s Sagging Profit Signals Trouble for Airlines This Summer - The Wall Street Journal",
+        "description": null,
+        "url": "https://www.wsj.com/business/airlines/delta-dal-q2-earnings-report-2024-e025fb71",
+        "urlToImage": null,
+        "publishedAt": "2024-07-11T12:34:00Z",
+        "content": null
+        },
+        {
+        "source": {
+        "id": "cnn",
+        "name": "CNN"
+        },
+        "author": "Elizabeth Wolfe, Ashley Killough, Ed Lavandera",
+        "title": "Anger mounts in southeast Texas as crippling power outages and heat turn deadly - CNN",
+        "description": "Frustrations are mounting across southeast Texas as residents enter a fourth day of crippling power outages and heat, a combination that has proven dangerous – and at times deadly – as residents struggle to access food, gas and medical care.",
+        "url": "https://www.cnn.com/2024/07/11/weather/texas-heat-beryl-power-outage-thursday/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/2024-07-10t063056z-1116356832-rc22s8ad9tn0-rtrmadp-3-usa-weather-20240711035602342.jpg?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-07-11T12:09:00Z",
+        "content": "Frustrations are mounting across southeast Texas as residents enter a fourth day of crippling power outages and heat, a combination that has proven dangerous and at times deadly as some struggle to a… [+6793 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "CBS Sports"
+        },
+        "author": "",
+        "title": "2024 NFL head coach rankings: Chiefs' Andy Reid still king as Chargers' Jim Harbaugh returns with top 10 spot - CBS Sports",
+        "description": "A rundown of every single NFL coach, 32-1",
+        "url": "https://www.cbssports.com/nfl/news/2024-nfl-head-coach-rankings-chiefs-andy-reid-still-king-as-chargers-jim-harbaugh-returns-with-top-10-spot/",
+        "urlToImage": "https://sportshub.cbsistatic.com/i/r/2024/07/10/0ddd970e-efa6-4912-bd23-48a8b5f113ad/thumbnail/1200x675/6d63a73716518f8dda389407fed1b087/andy-reid-g.jpg",
+        "publishedAt": "2024-07-11T12:04:05Z",
+        "content": "Football is a team sport. Which means, more often than not, you won't be a serious Super Bowl contender if you don't have a formidable combination of elite talent and/or consistent, innovative coachi… [+18990 chars]"
+        },
+        {
+        "source": {
+        "id": "espn",
+        "name": "ESPN"
+        },
+        "author": "Jeff Carlisle",
+        "title": "Why U.S. Soccer had no choice but to fire USMNT coach Berhalter - ESPN",
+        "description": "Gregg Berhalter is out. If U.S. Soccer sporting director Matt Crocker gets the next men's national team coach wrong, it might be Crocker who's out then.",
+        "url": "https://www.espn.com/soccer/story/_/id/40536813/us-soccer-cant-miss-next-usmnt-coach-gregg-berhalter-analysis",
+        "urlToImage": "https://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0711%2Fr1357190_1296x729_16%2D9.jpg",
+        "publishedAt": "2024-07-11T12:00:00Z",
+        "content": "During Gregg Berhalter's tenure as manager of the U.S. men's national soccer team, he always seemed to do just enough to meet modest expectations. But he also never exceeded them in a way that could … [+6892 chars]"
+        },
+        {
+        "source": {
+        "id": "cnn",
+        "name": "CNN"
+        },
+        "author": "Catherine Nicholls, Sana Noor Haq",
+        "title": "Tributes flood in for BBC sport commentator whose wife and daughters were killed in suspected crossbow attack - CNN",
+        "description": "Figures from across the sporting world have offered their condolences to a BBC sport commentator, after his wife and two daughters were killed by an alleged crossbow attacker, in deaths that again drew attention to the epidemic of violence against women.",
+        "url": "https://www.cnn.com/2024/07/11/europe/crossbow-attack-violence-women-bbc-journalist-intl-gbr/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/source-bbc.JPG?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-07-11T11:53:00Z",
+        "content": "Figures from across the sporting world have offered their condolences to a BBC sport commentator, after his wife and two daughters were killed by an alleged crossbow attacker, in deaths that again dr… [+3315 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "Space.com"
+        },
+        "author": "Robert Lea",
+        "title": "Hubble Space Telescope finds closest massive black hole to Earth — a cosmic clue frozen in time - Space.com",
+        "description": "It's found in Omega Centauri, the remains of a cannibalized galaxy.",
+        "url": "https://www.space.com/closest-massive-black-hole-earth-hubble",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/Pzd9Mx7tpAGNEXBnNL6fDV-1200-80.png",
+        "publishedAt": "2024-07-11T11:48:24Z",
+        "content": "Using the Hubble Space Telescope, astronomers have discovered the closest massive black hole to Earth ever seen, a cosmic titan \"frozen in time.\" \r\nAs an example of an elusive \"intermediate-mass blac… [+7280 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "BBC News"
+        },
+        "author": null,
+        "title": "US cruise missiles to return to Germany, angering Moscow - BBC.com",
+        "description": "The missiles will be deployed periodically from 2026 for the first time since the Cold War.",
+        "url": "https://www.bbc.com/news/articles/cgxq7lkj4vgo",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/9287/live/e7c54250-3f76-11ef-aab4-abea2b917c4b.jpg",
+        "publishedAt": "2024-07-11T11:35:42Z",
+        "content": "Long-range US missiles are to be deployed periodically in Germany from 2026 for the first time since the Cold War, in a decision announced at Nato's 75th anniversary summit.\r\nThe Tomahawk cruise, SM-… [+2399 chars]"
+        },
+        {
+        "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+        },
+        "author": "KEN MORITSUGU",
+        "title": "China tells NATO not to create chaos in Asia and rejects label of 'enabler' of Russia's Ukraine war - The Associated Press",
+        "description": "China has accused NATO of seeking security at the expense of others and told the alliance not to bring the same “chaos” to Asia. The statement from a Foreign Ministry spokesperson on Thursday came a day after NATO labeled China a “decisive enabler” of Russia’…",
+        "url": "https://apnews.com/article/china-nato-ukraine-war-689834988a7e0543504010649a63e319",
+        "urlToImage": "https://dims.apnews.com/dims4/default/2013eb5/2147483647/strip/true/crop/3293x1852+0+172/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F91%2Fa8%2F229f9fd1f23b0e7233e74ec17420%2F287478d1170e4e1e9504347185db67bb",
+        "publishedAt": "2024-07-11T11:27:00Z",
+        "content": "BEIJING (AP) China accused NATO on Thursday of seeking security at the expense of others and told the alliance not to bring the same chaos to Asia, a reflection of its determination to oppose strengt… [+3278 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "NPR"
+        },
+        "author": "",
+        "title": "Biden is holding a rare solo news conference to try to show he’s up for this campaign - NPR",
+        "description": "President Biden’s first formal solo news conference of the year is being closely watched to see how he handles curveballs. Many in his own party want him to step back from his reelection bid.",
+        "url": "https://www.npr.org/2024/07/11/nx-s1-5033845/joe-biden-nato-press-conference",
+        "urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5105x2872+0+266/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F42%2Fb8%2F2ea743e34194b2c0f15ebacaaa90%2Fgettyimages-2160760781.jpg",
+        "publishedAt": "2024-07-11T11:00:00Z",
+        "content": "President Biden faces yet another high-profile public test of whether hes sharp enough to campaign for a second term when he takes questions from reporters on Thursday.\r\nIt comes as Biden wraps up a … [+2631 chars]"
+        },
+        {
+        "source": {
+        "id": null,
+        "name": "New York Post"
+        },
+        "author": "Steven Vago, Priscilla DeGregory",
+        "title": "New Mexicans aren’t happy to see ‘narcissistic’ Alec Baldwin in Santa Fe for involuntary manslaughter trial - New York Post ",
+        "description": "“It’s egotistical, it’s narcissistic. We’ve noticed that when he played Trump. He played that part easy,” one local woman who attended the trial fumed.",
+        "url": "https://nypost.com/2024/07/11/us-news/new-mexicans-slam-alec-baldwin-as-manslaughter-trial-kicks-off/",
+        "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/07/actor-alec-baldwin-arrives-district-85235014.jpg?quality=75&strip=all&w=1024",
+        "publishedAt": "2024-07-11T10:43:00Z",
+        "content": "SANTA FE, N.M. — Santa Fe is used to tourists. But not like this. \r\nAlec Baldwin swept into town this week for the start of his involuntary manslaughter trial, and he’s not exactly getting a warm wel… [+5373 chars]"
+        },
+        {
+        "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+        },
+        "author": null,
+        "title": "Woman swimming off Japanese beach was swept into the Pacific, but rescued 37 hours later and 50 miles away - CBS News",
+        "description": "A cargo ship crew spotted a Chinese woman who had drifted 50 miles from the Japanese beach where she went for a swim.",
+        "url": "https://www.cbsnews.com/news/woman-rescued-pacific-swimming-japan-beach-adrift-37-hours/",
+        "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2024/07/11/a176c7ae-4283-4a28-a693-495ea978b35b/thumbnail/1200x630/b2e3c5a73320da30cf70d5684630bd7f/ap24193209814094.jpg?v=2287029998c5246c93d6dd038eb30603",
+        "publishedAt": "2024-07-11T10:31:00Z",
+        "content": "Tokyo — A Chinese woman who was swept out to sea while swimming at a Japanese beach was rescued 37 hours later after drifting in a swimming ring more than 50 miles in the Pacific Ocean, officials sai… [+1140 chars]"
+        },
+        {
+        "source": {
+        "id": "nbc-news",
+        "name": "NBC News"
+        },
+        "author": "Patrick Smith",
+        "title": "Chinese military ships spotted near Alaska's Aleutian islands - NBC News",
+        "description": "Chinese Navy ships were spotted inside the U.S. exclusive economic zone of the Bering Sea by a cutter on a routine patrol late last week, the U.S.",
+        "url": "https://www.nbcnews.com/news/us-news/china-military-ships-alaska-us-coast-guard-rcna161304",
+        "urlToImage": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2024-07/240711-bering-sea-uscg-mb-1049-bdb854.jpg",
+        "publishedAt": "2024-07-11T10:08:35Z",
+        "content": "Chinese Navy ships were spotted inside the U.S. exclusive economic zone of the Bering Sea by a cutter on a routine patrol late last week, the U.S. Coast Guard said on Wednesday.\r\nThe U.S. Coast Guard… [+1548 chars]"
+        },
+        {
+        "source": {
+        "id": "google-news",
+        "name": "Google News"
+        },
+        "author": "9to5Mac",
+        "title": "iPhone 16 Pro to get same 5x zoom camera as Pro Max, bigger upgrades next year - 9to5Mac",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiRWh0dHBzOi8vOXRvNW1hYy5jb20vMjAyNC8wNy8xMS9pcGhvbmUtMTYtcHJvLW9wdGljYWwtem9vbS10ZXRyYXByaXNtL9IBAA?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-07-11T10:04:00Z",
+        "content": null
+        },
+        {
+            "source": {
+            "id": "google-news",
+            "name": "Google News"
             },
-            {
-                "source":{"id":null,"name":"BBC News"},
-                "author":null,
-                "title":"Attempted carjacker shot outside Supreme Court Justice Sonia Sotomayor's home - BBC.com",
-                "description":"The incident happened outside Justice Sonia Sotomayor’s home when an armed man approached a US Marshal's car.",
-                "url":"https://www.bbc.com/news/articles/c1we6xy7q7qo",
-                "urlToImage":"https://ichef.bbci.co.uk/news/1024/branded_news/7bf5/live/abef1380-3ea6-11ef-8778-2143088d857f.jpg","publishedAt":"2024-07-10T11:39:19Z",
-                "content":"A Deputy US Marshal shot a would-be carjacker while he was guarding Supreme Court Justice Sonia Sotomayors home in Washington DC, authorities said.\r\nThe man was shot after approaching the car the off… [+1815 chars]"
-                },
-                {
-                    "source":{"id":"nbc-news","name":"NBC News"},
-                    "author":"Alexander Smith","title":"Manhunt launched in U.K. for crossbow-armed triple murder suspect - NBC News","description":"British police launched a manhunt for a suspect armed with a crossbow after three women were killed in the Hertfordshire town of Bushey, near London.",
-                    "url":"https://www.nbcnews.com/news/world/manhunt-uk-crossbow-armed-triple-murder-suspect-rcna161074","urlToImage":"https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2024-07/240710-watford-crossbow-mb-1118-3a09d4.jpg",
-                    "publishedAt":"2024-07-10T11:17:58Z",
-                    "content":"LONDON A manhunt has been launched for a crossbow-wielding suspect Wednesday after three women in the same family were killed in a house north of London, police said.\r\nAuthorities warned the public n… [+2720 chars]"
-                    },
-                {
-                    "source":{"id":null,"name":"Houston Chronicle"},
-                    "author":"Houston Chronicle staff",
-                    "title":"Live updates: Latest on Houston power outages and Beryl recovery efforts - Houston Chronicle ","description":"More than 1.3 million residents were still in the dark two days after Hurricane Beryl ripped through Houston. Follow along here for live updates.",
-                    "url":"https://www.houstonchronicle.com/news/houston-weather/hurricanes/article/hurricane-beryl-power-updates-houston-heat-19563819.php",
-                    "urlToImage":"https://s.hdnux.com/photos/01/40/53/61/25345098/3/rawImage.jpg",
-                    "publishedAt":"2024-07-10T11:15:00Z",
-                    "content":"A convoy of electric trucks from several different states gather to support power outage efforts the day after Hurricane Beryl made landfall in Houston causing mass power outages on Tuesday, July 9, … [+9337 chars]"
-                    },
-                    {
-                        "source":{"id":"cbs-news","name":"CBS News"},
-                        "author":null,
-                        "title":"Businesswoman who complained about cartel extortion and illegal fishing is shot dead in Mexico - CBS News",
-                        "description":"Minerva Pérez was killed in what the state prosecutor described as a direct assassination attack that riddled the victim with several gunshot wounds.",
-                        "url":"https://www.cbsnews.com/news/minerva-perez-killed-fisheries-leader-complained-cartel-extortion-shot-dead-mexico/",
-                        "urlToImage":"https://assets3.cbsnewsstatic.com/hub/i/r/2024/07/10/6bd845c5-863c-454a-b8ef-bea4ea4fa8bd/thumbnail/1200x630g3/ea9a778ae1c9cf41bd677a90932fd1b6/minerva-atenea.jpg?v=2287029998c5246c93d6dd038eb30603","publishedAt":"2024-07-10T11:12:15Z",
-                        "content":"A Mexican fisheries industry leader who complained of drug cartel extortion and illegal fishing was shot to death in the northern border state of Baja California, authorities said Tuesday.\r\nUnidentif… [+4503 chars]"
-                        },
-                        {
-                            "source":{"id":"google-news","name":"Google News"},
-                            "author":"NBC News",
-                            "title":"Alec Baldwin's 'Rust' trial begins and 'hyperactive' hurricane season predicted after Beryl: Morning Rundown - NBC News",
-                            "description":null,
-                            "url":"https://news.google.com/rss/articles/CBMiZmh0dHBzOi8vd3d3Lm5iY25ld3MuY29tL25ld3MvYWxlYy1iYWxkd2luLXJ1c3QtdHJpYWwtaHVycmljYW5lLXNlYXNvbi1iZXJ5bC1tb3JuaW5nLXJ1bmRvd24tcmNuYTE2MTA2ONIBK2h0dHBzOi8vd3d3Lm5iY25ld3MuY29tL25ld3MvYW1wL3JjbmExNjEwNjg?oc=5","urlToImage":null,
-                            "publishedAt":"2024-07-10T11:08:04Z",
-                            "content":null},
-                            {
-                            "source":{"id":"cnn","name":"CNN"},
-                            "author":"Piper HudspethBlackburn",
-                            "title":"Bennet becomes first Democratic senator to publicly turn on Biden, warning of a GOP ‘landslide’ - CNN",
-                            "description":"Sen. Michael Bennet on Tuesday became the first Democratic senator to publicly say he doesn’t believe President Joe Biden is capable of winning reelection after his disastrous debate performance last month.",
-                            "url":"https://www.cnn.com/2024/07/09/politics/senate-democrat-michael-bennet-biden-reelection-cnntv/index.html",
-                            "urlToImage":"https://media.cnn.com/api/v1/images/stellar/prod/still-20775808-75135-still.jpg?c=16x9&q=w_800,c_fill",
-                            "publishedAt":"2024-07-10T11:04:00Z",
-                            "content":"Sen. Michael Bennet on Tuesday became the first Democratic senator to publicly say he doesnt believe President Joe Biden is capable of winning reelection after his disastrous debate performance last … [+3278 chars]"
-                            },
-                            {
-                                "source":{"id":"the-verge","name":"The Verge"},
-                                "author":"Wes Davis",
-                                "title":"Where to watch Samsung’s Galaxy Unpacked event on Wednesday - The Verge",
-                                "description":"Samsung will talk Galaxy AI and foldables at Galaxy Unpacked on Wednesday, July 10th, and may also reveal new wearables, including the Galaxy Ring.",
-                                "url":"https://www.theverge.com/2024/7/10/24194483/samsung-galaxy-unpacked-watch-live-stream-start-time","urlToImage":"https://cdn.vox-cdn.com/thumbor/JRR67NMmAucq1EQYO5KOQ-coSPI=/0x0:1145x688/1200x628/filters:focal(573x344:574x345)/cdn.vox-cdn.com/uploads/chorus_asset/file/25522346/Screenshot_2024_07_08_at_3.15.13_PM.png",
-                                "publishedAt":"2024-07-10T11:00:00Z",
-                                "content":"Where to watch Samsungs Galaxy Unpacked event\r\nWhere to watch Samsungs Galaxy Unpacked event\r\n / Samsung is livestreaming Unpacked at 9AM ET on July 10th.\r\nByWes Davis, a weekend editor who covers th… [+233 chars]"
-                                },
-                                {"source":{"id":null,"name":"New York Post"},
-                                "author":"Nika Shakhnazarova",
-                                "title":"Ben Affleck, Jennifer Garner's daughter Violet reveals she contracted a post-viral condition, demands 'mask mandates' - New York Post ",
-                                "description":"The 18-year-old daughter of Ben Affleck and Jennifer Garner shared her personal experience with recovering from viruses.",
-                                "url":"https://nypost.com/2024/07/10/us-news/ben-affleck-jennifer-garners-daughter-violet-reveals-she-contracted-a-post-viral-condition-demands-mask-mandates/",
-                                "urlToImage":"https://nypost.com/wp-content/uploads/sites/2/2024/07/85211680.jpg?quality=75&strip=all&w=1024",
-                                "publishedAt":"2024-07-10T10:49:00Z",
-                                "content":"Jennifer Garner and Ben Affleck’s eldest child revealed that she contracted a post-viral condition in 2019 as she demanded mask mandates in LA hospitals during a city board meeting on Tuesday. \r\nViol… [+3301 chars]"
-                                },
-                                {
-                                    "source":{"id":"abc-news","name":"ABC News"},
-                                    "author":"Max Golembo",
-                                    "title":"Beryl remnants move into Northeast, bringing flash flood and tornado threats - ABC News","description":"More than 1.7 million customers remained without power in Texas early Wednesday.","url":"https://abcnews.go.com/US/hurricane-beryl-northeast-flash-flood-tornado-remnants/story?id=111802565",
-                                    "urlToImage":"https://i.abcnewsfe.com/a/47447b5e-046f-41b6-951a-eaeea663a3aa/indiana-tornado_1720605024628_hpMain_16x9.jpg?w=1600",
-                                    "publishedAt":"2024-07-10T10:13:19Z",
-                                    "content":"Even though Beryl lost its status as a tropical storm, it still packed a punch as it moved from Arkansas to Michigan, bringing with it tornadoes and flash flooding.\r\nThe remnants of the storm, which … [+1300 chars]"
-                                    },
-                                    {
-                                        "source":{"id":"the-verge","name":"The Verge"},
-                                        "author":"Tom Warren",
-                                        "title":"Microsoft and Apple ditch OpenAI board seats amid regulatory scrutiny - The Verge","description":"Microsoft will no longer have a board seat at OpenAI. Apple is also ditching its plans for a non-voting seat, all amid regulatory scrutiny of Big Tech AI deals.",
-                                        "url":"https://www.theverge.com/2024/7/10/24195528/microsoft-apple-openai-board-observer-seat-drop-regulator-scrutiny",
-                                        "urlToImage":"https://cdn.vox-cdn.com/thumbor/IujUpgnOiQg4gtWhZOyng69_hUk=/0x0:2040x1360/1200x628/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/25418233/STK095_MICROSOFT_CVirginia_A.jpg",
-                                        "publishedAt":"2024-07-10T09:19:26Z",
-                                        "content":"Microsoft and Apple ditch OpenAI board seats amid regulatory scrutiny\r\nMicrosoft and Apple ditch OpenAI board seats amid regulatory scrutiny\r\n / OpenAI switches to stakeholder meetings instead of boa… [+2350 chars]"
-                                        },
-                                        {
-                                            "source":{"id":"abc-news","name":"ABC News"},
-                                            "author":"Mary Kekatos",
-                                            "title":"NASA astronauts, stuck on ISS after issues with Boeing's Starliner, to give press conference - ABC News",
-                                            "description":"Butch Wilmore and Suni Williams were orginally to return to Earth on June 14.","url":"https://abcnews.go.com/Technology/nasa-astronauts-stuck-iss-after-issues-boeings-starliner/story?id=111770374","urlToImage":"https://i.abcnewsfe.com/a/a8901c88-f7ad-436b-a1b1-89bdd9ec541f/boeing-starliner-astronauts-rt-lv-240709_1720543978684_hpMain_16x9.jpg?w=1600","publishedAt":"2024-07-10T09:15:24Z",
-                                            "content":"The NASA astronauts who were aboard the first crewed flight into space on Boeing's Starliner will participate in a press conference on Wednesday morning.\r\nFlight commander Barry \"Butch\" Wilmore, 61, … [+3230 chars]"
-                                            },
-                                            {
-                                                "source":{"id":"google-news","name":"Google News"},
-                                                "author":"NPR",
-                                                "title":"Ozempic's popularity leads to shortages for people with Type 2 diabetes - NPR","description":null,"url":"https://news.google.com/rss/articles/CBMigwFodHRwczovL3d3dy5ucHIub3JnL3NlY3Rpb25zL3Nob3RzLWhlYWx0aC1uZXdzLzIwMjQvMDcvMTAvbngtczEtNTAwNjEwMy9vemVtcGljLXdlZ292eS1zZW1hZ2x1dGlkZS1zaG9ydGFnZS10eXBlLTItZGlhYmV0ZXMtb2Jlc2l0edIBAA?oc=5",
-                                                "urlToImage":null,
-                                                "publishedAt":"2024-07-10T09:00:00Z",
-                                                "content":null
-                                                },
-                                                {
-                                                    "source":{"id":null,"name":"CNBC"},
-                                                    "author":"April Roach",
-                                                    "title":"Treasury yields retreat as Fed Chair warns on keeping rates elevated for too long - CNBC",
-                                                    "description":"U.S. Treasury bond yields were slightly down after the Federal Reserve chair warned that keeping rates elevated for too long could stunt economic growth.","url":"https://www.cnbc.com/2024/07/10/treasury-yields-retreat-fed-warns-on-keeping-rates-high-for-too-long.html","urlToImage":"https://image.cnbcfm.com/api/v1/image/104621704-GettyImages-824911552.jpg?v=1720600325&w=1920&h=1080",
-                                                    "publishedAt":"2024-07-10T08:49:17Z",
-                                                    "content":"U.S. Treasury bond yields were slightly down on Wednesday after Federal Reserve Chair Jerome Powell warned that keeping interest rates elevated for too long could stunt economic growth.\r\nThe 10-year … [+1280 chars]"
-                                                    },
-                                                    {
-                                                        "source":{"id":null,"name":"DW (English)"},
-                                                        "author":"Deutsche Welle",
-                                                        "title":"Australia: Rangers shoot 14 foot crocodile that killed child - DW (English)",
-                                                        "description":"The crocodile had killed a 12-year-old girl last week in the Northern Territory. Police confirmed the animal was found and then shot dead.","url":"https://www.dw.com/en/australia-rangers-shoot-14-foot-crocodile-that-killed-child/a-69612876","urlToImage":"https://static.dw.com/image/69613651_6.jpg","publishedAt":"2024-07-10T08:38:45Z",
-                                                        "content":"Authorities in Australia said on Wednesday that a 4.2 meter (14-foot) crocodile was located and shot dead by rangers after it killed a 12-year-old girl last week.\r\nNorthern Territory police said in a… [+1395 chars]"
-                                                        },
-                                                        {
-                                                            "source":{"id":"google-news","name":"Google News"},
-                                                            "author":"NBC News",
-                                                            "title":"'Shrek 5' set for July 2026 with Mike Myers, Eddie Murphy and Cameron Diaz returning - NBC News",
-                                                            "description":null,
-                                                            "url":"https://news.google.com/rss/articles/CBMidGh0dHBzOi8vd3d3Lm5iY25ld3MuY29tL25ld3MvdXMtbmV3cy9zaHJlay01LXNldC1qdWx5LTIwMjYtbWlrZS1teWVycy1lZGRpZS1tdXJwaHktY2FtZXJvbi1kaWF6LXJldHVybmluZy1yY25hMTYxMDYz0gEraHR0cHM6Ly93d3cubmJjbmV3cy5jb20vbmV3cy9hbXAvcmNuYTE2MTA2Mw?oc=5","urlToImage":null,
-                                                            "publishedAt":"2024-07-10T08:19:15Z",
-                                                            "content":null
-                                                            },
-                                                            {
-                                                                "source":{"id":"google-news","name":"Google News"},
-                                                                "author":"Fox News",
-                                                                "title":"NATO summit in DC is 'pivotal' make-or-break for Biden as scrutiny over fitness for office intensifies - Fox News","description":null,
-                                                                "url":"https://news.google.com/rss/articles/CBMib2h0dHBzOi8vd3d3LmZveG5ld3MuY29tL3BvbGl0aWNzL25hdG8tc3VtbWl0LWRjLXBpdm90YWwtbWFrZS1vci1icmVhay1iaWRlbi1zY3J1dGlueS1maXRuZXNzLW9mZmljZS1pbnRlbnNpZmllc9IBc2h0dHBzOi8vd3d3LmZveG5ld3MuY29tL3BvbGl0aWNzL25hdG8tc3VtbWl0LWRjLXBpdm90YWwtbWFrZS1vci1icmVhay1iaWRlbi1zY3J1dGlueS1maXRuZXNzLW9mZmljZS1pbnRlbnNpZmllcy5hbXA?oc=5",
-                                                                "urlToImage":null,
-                                                                "publishedAt":"2024-07-10T08:00:00Z",
-                                                                "content":null
-                                                                },
-                                                                {
-                                                                    "source":{"id":"ars-technica",
-                                                                    "name":"Ars Technica"},
-                                                                    "author":"Stephen Clark",
-                                                                    "title":"Europe’s first Ariane 6 flight achieved most of its goals, but ended prematurely - Ars Technica",
-                                                                    "description":"Ariane 6 launched into orbit, but an upper stage problem kept it from completing the demo flight.",
-                                                                    "url":"https://arstechnica.com/space/2024/07/europes-first-ariane-6-flight-achieved-most-of-its-goals-but-ended-prematurely/",
-                                                                    "urlToImage":"https://cdn.arstechnica.net/wp-content/uploads/2024/07/GettyImages-2160744209-760x380.jpg","publishedAt":"2024-07-10T06:22:35Z",
-                                                                    "content":"Enlarge/ Europe's first Ariane 6 rocket lifts off from a new launch pad in Kourou, French Guiana.\r\n24\r\nThe first European Ariane 6 rocket fired off its launch pad at the edge of the Amazon rainforest… [+12781 chars]"
-                                                                    },
-                                                                    {
-                                                                        "source":{"id":null,"name":"NPR"},
-                                                                        "author":null,
-                                                                        "title":"A Moscow court orders the arrest of Alexei Navalny's widow, who lives abroad - NPR",
-                                                                        "description":"A Moscow court ordered the arrest of the widow of Russian opposition leader Alexei Navalny during a hearing that was conducted in absentia as part of a sweeping Kremlin crackdown on the opposition.",
-                                                                        "url":"https://www.npr.org/2024/07/10/nx-s1-5034796/russia-court-arrest-of-alexei-navalny-widow","urlToImage":"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4000x2250+0+208/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ff5%2Fd3%2Ff7604f4a412dbb010ef9652c75e3%2Fap24192071993826.jpg",
-                                                                        "publishedAt":"2024-07-10T05:39:55Z",
-                                                                        "content":"A court in Russia ordered the arrest of the widow of Russian opposition leader Alexei Navalny during a hearing Tuesday that was conducted in absentia as part of a sweeping Kremlin crackdown on the op… [+1895 chars]"
-                                                                        },
-                                                                        {
-                                                                            "source":{"id":"usa-today","name":"USA Today"},"author":"Field Level Media",
-                                                                            "title":"Rays' Wander Franco charged with sexual abuse, exploitation of minor: report - USA TODAY","description":"Tampa Bay Rays shortstop Wander Franco was formally charged with sexual abuse and sexual exploitation against a minor on Tuesday, according to ESPN.","url":"https://www.usatoday.com/story/sports/mlb/2024/07/10/wander-franco-charged-with-sexual-abuse-of-minor/74347908007/","urlToImage":"https://www.usatoday.com/gcdn/authoring/authoring-images/2024/01/20/USAT/72290163007-usatsi-20646010.jpg?crop=4757,2677,x0,y247&width=3200&height=1801&format=pjpg&auto=webp",
-                                                                            "publishedAt":"2024-07-10T04:33:03Z",
-                                                                            "content":"Tampa Bay Rays shortstop Wander Franco was formally charged with sexual abuse and sexual exploitation against a minor on Tuesday, according to ESPN.\r\nThe charges came in the Dominican Republic, where… [+1717 chars]"}]
-
+            "author": "9to5Mac",
+            "title": "iPhone 16 Pro to get same 5x zoom camera as Pro Max, bigger upgrades next year - 9to5Mac",
+            "description": null,
+            "url": "https://news.google.com/rss/articles/CBMiRWh0dHBzOi8vOXRvNW1hYy5jb20vMjAyNC8wNy8xMS9pcGhvbmUtMTYtcHJvLW9wdGljYWwtem9vbS10ZXRyYXByaXNtL9IBAA?oc=5",
+            "urlToImage": null,
+            "publishedAt": "2024-07-11T10:04:00Z",
+            "content": null
+            },
+            
+        ];
+        
+                       
+                                                         
     constructor(){
         super();   
-        console.log("inside constructor from news component");
         this.state={
-         articles:this.articles,
-        loading:false        };
+         articles:[],
+        loading:false,
+        page:1    
+      };
         }
+
+        // component did mount
+        //fetch api using async await
+       async componentDidMount(){
+            console.log("inside component did mount");
+            let url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=1&pageSize=${this.props.pageSize}`;
+            let data= await fetch(url);
+            let parsedData=await data.json();
+            console.log(parsedData);
+            this.setState({
+                articles:parsedData.articles,
+                totalResults:parsedData.totalResults ,
+                loading:false
+            });
+          
+        }
+        handlePreviousClick=async()=>{
+            console.log("previous");
+            let url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+            let data= await fetch(url);
+            let parsedData=await data.json();
+            console.log(parsedData);
+         
+            this.setState({
+                page:this.state.page-1,
+                articles:parsedData.articles
+            })
+        }
+        handleNextClick=async ()=>{
+            console.log("next");
+            if(!(this.state.page+1 > Math.ceil(this.state.totalResults/(this.props.pageSize)))){
+                let url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page+1} &pageSize=${this.props.pageSize}`;
+                this.setState({loading:true});
+                let data= await fetch(url);
+                let parsedData=await data.json();
+        
+                console.log(parsedData);
+                
+                this.setState({
+                    page:this.state.page+1,
+                    articles:parsedData.articles,
+                    loading:false,
+                });
+                  
+            }
+       
+            }
+            
   render() {
+    console.log("inside render");
     return (
       <div className='container my-4'>
-        <h2>NewsApp- Top Headline </h2>
+        <h2 className='text-center'>NewsApp- Top Headline </h2>
+        {this.state.loading && <Spinner/>}
         <div className='row'>
-        {this.state.articles.map((element)=>{
-            return <div className='col-md-4'>
-          <NewsItem key={element.url}
-          title={element.title} description={element.description}imageUrl="https://ktla.com/wp-content/uploads/sites/4/2024/07/violet.jpg?w=1280" newsUrl="work on it"/>
+        {this.articles.map((element)=>{
+            return (
+                 <div className='col-md-4'  key={element.url}>
+          <NewsItem 
+        
+          title={element.title} 
+          description={element.description}
+          imageUrl="https://ktla.com/wp-content/uploads/sites/4/2024/07/violet.jpg?w=1280" 
+          newsUrl={element.url}
+          />
          </div>
+            )
+            
        })}
           </div>
+          <div className="container d-flex justify-content-between my-4" >
+
+          <button type="button" class="btn btn-secondary" onClick={this.handlePreviousClick} disabled={this.state.page<=1}>&larr; Previous</button>
+          <button type="button" class="btn btn-secondary" onClick={this.handleNextClick}>Next &rarr;</button>
+          </div>
+         
       </div>
     )
   }
