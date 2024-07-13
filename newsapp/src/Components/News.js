@@ -308,7 +308,7 @@ export class News extends Component {
         //fetch api using async await
        async componentDidMount(){
             console.log("inside component did mount");
-            let url=`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=1&pageSize=${this.props.pageSize}`;
+            let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=1&pageSize=${this.props.pageSize}`;
             this.setState({loading:true});
             let data= await fetch(url);
             let parsedData=await data.json();
@@ -322,7 +322,7 @@ export class News extends Component {
         }
         handlePreviousClick=async()=>{
             console.log("previous");
-            let url=`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
+            let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page-1}&pageSize=${this.props.pageSize}`
             let data= await fetch(url);
             this.setState({loading:true});
             let parsedData=await data.json();
@@ -337,7 +337,7 @@ export class News extends Component {
         handleNextClick=async ()=>{
             console.log("next");
             if(!(this.state.page+1 > Math.ceil(this.state.totalResults/(this.props.pageSize)))){
-                let url=`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page+1} &pageSize=${this.props.pageSize}`;
+                let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=50f2e326f5e44511af99f60aa0a5ec15&page=${this.state.page+1} &pageSize=${this.props.pageSize}`;
                 this.setState({loading:true});
                 let data= await fetch(url);
                 let parsedData=await data.json();
